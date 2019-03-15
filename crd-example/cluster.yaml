@@ -1,0 +1,13 @@
+apiVersion: clustercontroller.k8s.io/v1alpha1
+kind: LkController
+metadata:
+  name: lkcontroller
+spec:
+  k8s:
+    k8sversion: "v1.13.1"
+    isha: false
+  plugins:
+    plugins:
+    - Name: "dashboard"
+  nodes:
+  - number: 3

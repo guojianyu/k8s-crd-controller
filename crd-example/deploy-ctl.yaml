@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: lkcontroller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      serviceAccountName: lksclient-binding
+      nodeSelector:
+        node: "node1"
+      containers:
+      - name: hello
+        imagePullPolicy: Never
+        image: "lktest:latest"
+        ports:
+        - containerPort: 80
+          hostPort: 8081
+
